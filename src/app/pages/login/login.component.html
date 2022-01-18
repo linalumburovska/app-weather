@@ -11,10 +11,15 @@
             <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-0">
             <label>Password</label>
             <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
         </div>
+        <span *ngIf="loginForm.get('password').touched && loginForm.get('password').errors?.pattern"
+            class="error-message"
+        >
+            Please enter 8 characters: at least one capital letter, at least one number and at least one special character
+        </span>
 
         <button type="submit" class="btn btn-block btn-login">Login</button>
     </form>

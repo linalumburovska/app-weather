@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/app/models/user.interface';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -20,13 +19,16 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    this.authService.login(this.loginForm.value)
+    if(this.loginForm.valid) {
+      this.authService.login(this.loginForm.value)
+    }
   }
 
   initForm() {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', [Validators.required, 
+        Validators.pattern("^(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z0-9@$!%*?&]{8}")]]
     });
   }
 
