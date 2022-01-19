@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/app-store/app-state.model';
-import { AddCityAction } from 'src/app/app-store/app.actions';
+import { AddCityAction, DeleteCityAction } from 'src/app/app-store/app.actions';
 import { City } from 'src/app/models/city.interface';
 import { CityService } from 'src/app/services/city.service';
 
@@ -28,6 +28,10 @@ export class WeatherComponent implements OnInit {
     this.cityService.getCityDataByName(this.cityName).subscribe((city: City)=> {
       this.store.dispatch(new AddCityAction(city))
     })
+  }
+
+  deleteCity(id: number) {
+    this.store.dispatch(new DeleteCityAction(id));
   }
 
 }

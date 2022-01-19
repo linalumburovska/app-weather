@@ -20,6 +20,9 @@
     </p>
     
     <div *ngFor="let city of cities$ | async">
-        <app-city-card [city]="city"></app-city-card>
+        <app-city-card 
+            [city]="city"
+            (deleteCity)="deleteCity($event)"
+        ></app-city-card>
     </div>
 </div>
