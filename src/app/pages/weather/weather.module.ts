@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { WeatherFavouritesComponent } from './components/weather-favourites/weather-favourites.component';
 import { WeatherFiveDaysComponent } from './components/weather-five-days/weather-five-days.component';
 import { NextDayComponent } from 'src/app/shared/next-day/next-day.component';
+import { TimeTemperatureComponent } from 'src/app/shared/time-temperature/time-temperature.component';
+import { WeatherTimeTemperaturesComponent } from './components/weather-time-temperatures/weather-time-temperatures.component';
 
 
 
@@ -17,7 +19,9 @@ import { NextDayComponent } from 'src/app/shared/next-day/next-day.component';
     CityCardComponent,
     WeatherFavouritesComponent,
     WeatherFiveDaysComponent,
-    NextDayComponent
+    NextDayComponent,
+    TimeTemperatureComponent,
+    WeatherTimeTemperaturesComponent
   ],
   imports: [
     CommonModule,
