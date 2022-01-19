@@ -14,6 +14,11 @@
                 [disabled]="(cities$ | async)?.length >= 10">
             Add New City
         </button>
+
+        <button (click)="navigateFavourites()"
+                class="btn btn-primary">
+            My favorite cities
+        </button>
     </div>
     <p *ngIf="(cities$ | async)?.length >= 10">
         You cannot enter more than 10 cities!

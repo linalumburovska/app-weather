@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/app-store/app-state.model';
@@ -18,7 +19,8 @@ export class WeatherComponent implements OnInit {
 
   constructor(
     private cityService: CityService,
-    private store: Store<AppState>) { }
+    private store: Store<AppState>,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.cities$ = this.store.select(store => store.cities);
@@ -26,7 +28,9 @@ export class WeatherComponent implements OnInit {
 
   addNewCity() {
     this.cityService.getCityDataByName(this.cityName).subscribe((city: City)=> {
-      this.store.dispatch(new AddCityAction(city))
+      city.isFavorite = false;
+      this.store.dispatch(new AddCityAction(city));
+      this.cityName = "";
     })
   }
 
@@ -34,4 +38,7 @@ export class WeatherComponent implements OnInit {
     this.store.dispatch(new DeleteCityAction(id));
   }
 
+  navigateFavourites() {
+    this.router.navigate(['/weather/favorites']);
+  }
 }
