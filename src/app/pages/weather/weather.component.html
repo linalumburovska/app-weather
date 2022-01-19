@@ -4,10 +4,22 @@
         <h1>Welcome to AppWeather</h1>
     </div>
 
-    <button (click)="addNewCity()">Add New City</button>
+    <div class="row">
+        <div class="form-group mb-0">
+            <input type="text" class="form-control" placeholder="Enter city" [(ngModel)]="cityName">
+        </div>
 
-    <div *ngFor="let city of cities$ | async">
-        {{ city.name }}
+        <button (click)="addNewCity()"
+                class="btn btn-primary"
+                [disabled]="(cities$ | async)?.length >= 10">
+            Add New City
+        </button>
     </div>
-
+    <p *ngIf="(cities$ | async)?.length >= 10">
+        You cannot enter more than 10 cities!
+    </p>
+    
+    <div *ngFor="let city of cities$ | async">
+        <app-city-card [city]="city"></app-city-card>
+    </div>
 </div>

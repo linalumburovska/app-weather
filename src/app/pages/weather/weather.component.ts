@@ -14,6 +14,7 @@ import { CityService } from 'src/app/services/city.service';
 export class WeatherComponent implements OnInit {
   
   cities$: Observable<City[]>;
+  cityName: string;
 
   constructor(
     private cityService: CityService,
@@ -24,7 +25,7 @@ export class WeatherComponent implements OnInit {
   }
 
   addNewCity() {
-    this.cityService.getCityDataByName('Madrid').subscribe((city: City)=> {
+    this.cityService.getCityDataByName(this.cityName).subscribe((city: City)=> {
       this.store.dispatch(new AddCityAction(city))
     })
   }

@@ -20,7 +20,6 @@ import { AppComponent } from './app.component';
     })
   ],
   providers: [
-
     // This is used for calling the interceptor and add Authorization header
     // {
     //   provide: HTTP_INTERCEPTORS,
