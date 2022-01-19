@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-    background: #117d91c9;  
-    color: white;
-}
+@import '../src/styles/variables';
+@import '../src/styles/buttons';
+@import '../src/styles/mixins';
 
-.btn-primary {
-    background-color: rgb(230, 230, 18);
+body {
+    background: $background-color;
+    color: $text-color;
 }
 
 .row {

@@ -1,5 +1,7 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
 .card {
-    color: black;
     margin: 20px 0;
-    font-size: 14px;
+    @include setColorFont($text-color-card, $card-text-font);
 }
