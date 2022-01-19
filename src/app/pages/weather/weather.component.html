@@ -4,4 +4,10 @@
         <h1>Welcome to AppWeather</h1>
     </div>
 
+    <button (click)="addNewCity()">Add New City</button>
+
+    <div *ngFor="let city of cities$ | async">
+        {{ city.name }}
+    </div>
+
 </div>
