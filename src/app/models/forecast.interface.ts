@@ -1,33 +1,26 @@
 import { Weather } from "./weather.interface";
 
-export interface City {
-    base: string;
+export interface Forecast {
     clouds: {
-        all: number
-    };
-    coord: {
-        lon: number;
-        lat: number;
-    };
+        all: number;
+    },
     dt: number;
-    id: number;
+    dt_txt: string;
     main: {
         feels_like: number;
+        grnd_level: number;
         humidity: number;
         pressure: number;
+        sea_level: number;
         temp: number;
+        temp_kf: number;
         temp_max: number;
         temp_min: number;
-    };
-    name: string;
+    },
+    pop: number;
     sys: {
-        country: string;
-        id: number;
-        sunrise: number;
-        sunset: number;
-        type: number;
-    };
-    timezone: number;
+        pod: string;
+    },
     visibility: number;
     weather: Weather[];
     wind: {
@@ -35,5 +28,4 @@ export interface City {
         gust: number;
         speed: number;
     };
-    isFavorite?:boolean;
 }

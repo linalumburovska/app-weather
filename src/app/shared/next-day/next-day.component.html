@@ -1,0 +1,10 @@
+<div>
+    <div class="text-muted">{{ forecast.dt | date: 'EE' }}</div>
+    <div *ngFor="let weather of forecast.weather">
+        <img src="http://openweathermap.org/img/wn/{{weather.icon}}@2x.png" />
+    </div>
+    <div>
+        <span class="mr-2">{{ forecast.main.temp_max }} &#x2103;</span>
+        <span class="text-muted">{{ forecast.main.temp_min }} &#x2103;</span>
+    </div>
+</div>

@@ -10,6 +10,7 @@ export class CityCardComponent implements OnInit {
 
   @Input() city: City;
   @Output() deleteCity = new EventEmitter<number>(null);
+  @Output() nextFiveDays = new EventEmitter<string>(null);
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class CityCardComponent implements OnInit {
 
   removeCity(cityId: number) {
     this.deleteCity.emit(cityId);
+  }
+
+  weatherNextFiveDays(cityName: string) {
+    this.nextFiveDays.emit(cityName);
   }
 
 }

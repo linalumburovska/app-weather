@@ -1,0 +1,12 @@
+<div class="container">
+    
+    <div class="text-center mt-2">
+        <h1>{{ cityName }} - next five days</h1>
+    </div>
+
+    <div class="row">
+        <div class="col text-center" *ngFor="let forecast of forecastNextFiveDays$ | async | slice :0:5">
+            <app-next-day [forecast]="forecast"></app-next-day>
+        </div>
+    </div>
+</div>

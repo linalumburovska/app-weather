@@ -38,6 +38,10 @@ export class WeatherComponent implements OnInit {
     this.store.dispatch(new DeleteCityAction(id));
   }
 
+  navigateNextFiveDays(cityName: string) {
+    this.router.navigate(['weather/' + cityName]);
+  }
+
   navigateFavourites() {
     this.router.navigate(['/weather/favorites']);
   }
