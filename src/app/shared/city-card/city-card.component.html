@@ -1,6 +1,11 @@
 <div class="card text-muted">
     <div class="card-header">
-        <h4>{{ city.name }}</h4>
+        <h4>
+            <span *ngIf="isFavoritePage">
+                <i class="fa fa-star"></i>
+            </span>
+            {{ city.name }}
+        </h4>
     </div>
     <div class="card-body">
         <div class="row">
@@ -23,11 +28,11 @@
                 <p>Wind: {{ city.wind.deg }}</p>
                 <p>Wind speed: {{ city.wind.speed }}</p>
             </div>
-            <div class="col-3">
+            <div class="col-3" *ngIf="!isFavoritePage">
                <button class="btn btn-primary" (click)="weatherNextFiveDays(city.name)">
                     Next five days
                </button>
-               <button class="btn btn-primary mt-2">
+               <button class="btn btn-primary mt-2" (click)="addToFavourites(city)">
                     Add to favourites
                 </button>
                 <button class="btn btn-primary mt-2" (click)="removeCity(city.id)">

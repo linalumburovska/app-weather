@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/app-store/app-state.model';
-import { AddCityAction, DeleteCityAction } from 'src/app/app-store/app.actions';
+import { AddCityAction, AddFavoriteCityAction, DeleteCityAction } from 'src/app/app-store/app.actions';
 import { City } from 'src/app/models/city.interface';
 import { CityService } from 'src/app/services/city.service';
 
@@ -28,7 +28,6 @@ export class WeatherComponent implements OnInit {
 
   addNewCity() {
     this.cityService.getCityDataByName(this.cityName).subscribe((city: City)=> {
-      city.isFavorite = false;
       this.store.dispatch(new AddCityAction(city));
       this.cityName = "";
     })
@@ -44,5 +43,9 @@ export class WeatherComponent implements OnInit {
 
   navigateFavourites() {
     this.router.navigate(['/weather/favorites']);
+  }
+
+  addFavorites(city: City) {
+    this.store.dispatch(new AddFavoriteCityAction(city));
   }
 }

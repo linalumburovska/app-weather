@@ -9,8 +9,10 @@ import { City } from 'src/app/models/city.interface';
 export class CityCardComponent implements OnInit {
 
   @Input() city: City;
+  @Input() isFavoritePage: boolean;
   @Output() deleteCity = new EventEmitter<number>(null);
   @Output() nextFiveDays = new EventEmitter<string>(null);
+  @Output() addFavorites = new EventEmitter<City>(null);
 
   constructor() { }
 
@@ -23,6 +25,10 @@ export class CityCardComponent implements OnInit {
 
   weatherNextFiveDays(cityName: string) {
     this.nextFiveDays.emit(cityName);
+  }
+
+  addToFavourites(city: City) {
+    this.addFavorites.emit(city);
   }
 
 }

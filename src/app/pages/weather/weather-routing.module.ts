@@ -10,13 +10,13 @@ const routes: Routes = [
         component: WeatherComponent
     },
     {
-      path: ':cityName',
-      component: WeatherFiveDaysComponent
-    },
-    {
       path: 'favorites',
       component: WeatherFavouritesComponent
-  }
+    },
+    {
+      path: ':cityName',
+      component: WeatherFiveDaysComponent
+    }
 ];
 
 @NgModule({

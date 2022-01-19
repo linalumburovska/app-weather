@@ -35,5 +35,4 @@ export interface City {
         gust: number;
         speed: number;
     };
-    isFavorite?:boolean;
 }

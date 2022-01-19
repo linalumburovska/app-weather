@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
-import { CityReducer } from './app-store/app.reducer';
+import { CityReducer, FavouritesReducer } from './app-store/app.reducer';
 
 import { AppComponent } from './app.component';
 
@@ -16,7 +16,8 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot({
-      cities: CityReducer
+      cities: CityReducer,
+      favourites: FavouritesReducer
     })
   ],
   providers: [

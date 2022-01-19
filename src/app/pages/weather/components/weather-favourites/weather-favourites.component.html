@@ -1,1 +1,13 @@
-<p>weather-favourites works!</p>
+<div class="container">
+    
+    <div class="text-center mt-2">
+        <h1>My favorite cities</h1>
+    </div>
+    
+    <div *ngFor="let favorite of favorites$ | async">
+        <app-city-card 
+            [city]="favorite"
+            [isFavoritePage]="true"
+        ></app-city-card>
+    </div>
+</div>
