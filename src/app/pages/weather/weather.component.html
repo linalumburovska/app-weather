@@ -5,20 +5,30 @@
     </div>
 
     <div class="row">
-        <div class="form-group mb-0">
+        <div class="form-group col-lg-3 col-sm-6">
             <input type="text" class="form-control" placeholder="Enter city" [(ngModel)]="cityName">
         </div>
 
-        <button (click)="addNewCity()"
-                class="btn btn-primary"
-                [disabled]="(cities$ | async)?.length >= 10">
-            Add New City
-        </button>
+        <div class="col-lg-2 col-sm-6">
+            <button (click)="addNewCity()"
+                    class="btn btn-primary"
+                    [disabled]="(cities$ | async)?.length >= 10">
+                Add New City
+            </button>
+        </div>
 
-        <button (click)="navigateFavourites()"
-                class="btn btn-primary">
-            My favorite cities
-        </button>
+        <div class="col-lg-5 col-sm-6">
+            <button (click)="navigateFavourites()"
+                    class="btn btn-primary">
+                My favorite cities
+            </button>
+        </div>
+        <div class="col-lg-2 col-sm-6">
+            <button (click)="logout()"
+                    class="btn btn-primary">
+                Logout
+            </button>
+        </div>
     </div>
     <p *ngIf="(cities$ | async)?.length >= 10">
         You cannot enter more than 10 cities!

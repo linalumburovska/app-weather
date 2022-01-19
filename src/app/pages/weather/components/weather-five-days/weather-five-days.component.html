@@ -5,7 +5,7 @@
     </div>
 
     <div class="row">
-        <div class="col text-center" *ngFor="let forecast of forecastNextFiveDays$ | async | slice :0:5">
+        <div class="col-lg-2 text-center" *ngFor="let forecast of forecastNextFiveDays$ | async | slice :0:5">
             <app-next-day [forecast]="forecast"></app-next-day>
         </div>
     </div>

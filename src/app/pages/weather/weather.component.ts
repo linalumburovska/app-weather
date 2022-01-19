@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { AppState } from 'src/app/app-store/app-state.model';
 import { AddCityAction, AddFavoriteCityAction, DeleteCityAction } from 'src/app/app-store/app.actions';
 import { City } from 'src/app/models/city.interface';
+import { AuthService } from 'src/app/services/auth.service';
 import { CityService } from 'src/app/services/city.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class WeatherComponent implements OnInit {
   constructor(
     private cityService: CityService,
     private store: Store<AppState>,
-    private router: Router) { }
+    private router: Router,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
     this.cities$ = this.store.select(store => store.cities);
@@ -47,5 +49,9 @@ export class WeatherComponent implements OnInit {
 
   addFavorites(city: City) {
     this.store.dispatch(new AddFavoriteCityAction(city));
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }
