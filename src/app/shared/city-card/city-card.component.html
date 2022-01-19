@@ -4,16 +4,16 @@
             <span *ngIf="isFavoritePage">
                 <i class="fa fa-star"></i>
             </span>
-            {{ city.name }}
+            {{ city.name }}, {{ city.sys.country }}
         </h4>
     </div>
     <div class="card-body">
         <div class="row">
             <div class="col-3">
-               <p>TEMPERATURE: {{ city.main.temp }}</p>
-               <p>Temperature min: {{ city.main.temp_min }}</p>
-               <p>Temperature max: {{ city.main.temp_max }}</p>
-               <p>Feels like: {{ city.main.feels_like }}</p>
+               <p>TEMPERATURE: {{ city.main.temp }} &#x2103;</p>
+               <p>Temperature min: {{ city.main.temp_min }} &#x2103;</p>
+               <p>Temperature max: {{ city.main.temp_max }} &#x2103;</p>
+               <p>Feels like: {{ city.main.feels_like }} &#x2103;</p>
             </div>
             <div class="col-3">
                 <div *ngFor="let weather of city.weather">
@@ -23,10 +23,10 @@
                 </div>
             </div>
             <div class="col-3">
-                <p>Humidity: {{ city.main.humidity }}</p>
+                <p>Humidity: {{ city.main.humidity }} %</p>
                 <p>Pressure: {{ city.main.pressure }}</p>
                 <p>Wind: {{ city.wind.deg }}</p>
-                <p>Wind speed: {{ city.wind.speed }}</p>
+                <p>Wind speed: {{ city.wind.speed }} km/h </p>
             </div>
             <div class="col-3" *ngIf="!isFavoritePage">
                <button class="btn btn-primary" (click)="weatherNextFiveDays(city.name)">
@@ -42,6 +42,6 @@
         </div>
     </div>
     <div class="card-footer">
-       Timezone: {{ city.timezone }}
+       Timezone: {{ city.timezone | date: 'medium' }}
     </div>
 </div>
