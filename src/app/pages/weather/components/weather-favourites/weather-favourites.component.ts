@@ -13,7 +13,7 @@ export class WeatherFavouritesComponent implements OnInit {
 
   favorites$: Observable<City[]>;
 
-  constructor(private store: Store<AppState>,) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.favorites$ = this.store.select(store => store.favourites);

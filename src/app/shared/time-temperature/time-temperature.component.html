@@ -1,1 +1,13 @@
-<p>time-temperature works!</p>
+<div class="row">
+
+    <div class="text-muted text-line-height">{{ (time.dt*1000) | date: 'HH:mm' }} |</div>
+    
+    <div *ngFor="let weather of time.weather">
+        <img src="http://openweathermap.org/img/wn/{{weather.icon}}@2x.png" />
+    </div>
+
+    <div class="text-line-height">
+        <span class="mr-2">{{ time.main.temp_max }} &#x2103; /</span>
+        <span class="text-muted">{{ time.main.temp_min }} &#x2103;</span>
+    </div>
+</div>

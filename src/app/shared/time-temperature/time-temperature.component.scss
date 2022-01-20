@@ -1,0 +1,16 @@
+@import "../../../styles/mixins";
+
+.row {
+    height: 50px;
+    margin: auto;
+    width: 280px;
+}
+
+img {
+    @include imageSize(50px, 50px);
+}
+
+.text-line-height {
+    line-height: 50px;
+}
+

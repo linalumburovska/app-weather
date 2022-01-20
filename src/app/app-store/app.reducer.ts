@@ -21,3 +21,11 @@ export function FavouritesReducer(state: City[] = initialState, action: CityActi
         default: return state;
     }
 }
+
+export function DayTimeReducer(state: City[] = initialState, action: CityAction) {
+    switch(action.type) {
+        case CitiesActionTypes.ADD_DAY_TIME_LIST:
+            return [...state,action.payload];
+        default: return state;
+    }
+}

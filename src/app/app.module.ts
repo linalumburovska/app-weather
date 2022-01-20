@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
-import { CityReducer, FavouritesReducer } from './app-store/app.reducer';
+import { CityReducer, DayTimeReducer, FavouritesReducer } from './app-store/app.reducer';
 
 import { AppComponent } from './app.component';
 
@@ -17,7 +17,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     StoreModule.forRoot({
       cities: CityReducer,
-      favourites: FavouritesReducer
+      favourites: FavouritesReducer,
+      dayTimeList: DayTimeReducer
     })
   ],
   providers: [
