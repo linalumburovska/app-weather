@@ -17,7 +17,7 @@
                         (click)="navigateToTime(forecast)"
             ></app-next-day>
         </div> -->
-        <div class="col-lg-2 text-center" *ngFor="let dayForecast of days">
+        <div class="col-lg-2 col-sm-6 text-center" *ngFor="let dayForecast of days">
             <app-next-day [forecast]="dayForecast.forecast"
                         (click)="navigateToTime(dayForecast.day)"
             ></app-next-day>

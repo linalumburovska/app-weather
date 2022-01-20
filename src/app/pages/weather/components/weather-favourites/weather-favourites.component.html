@@ -9,6 +9,10 @@
             Back
         </button>
     </div>
+
+    <p *ngIf="(favorites$ | async)?.length == 0">
+        No favorite cities!
+    </p>
     
     <div *ngFor="let favorite of favorites$ | async">
         <app-city-card 

@@ -67,13 +67,13 @@ export class WeatherFiveDaysComponent implements OnInit {
           this.days.push(dayTime);
         }
       });
-      this.days.shift();
+      // The API for next five days returns the forecast for tomorrow and we can remove the first element
+      // I left it with today
+      // this.days.shift();
     });
   }
 
   back() {
     this.router.navigate(['weather']);
   }
-
-
 }

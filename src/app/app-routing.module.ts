@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'weather',
     loadChildren: () => import('./pages/weather/weather.module').then(m => m.WeatherModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 ];
 
