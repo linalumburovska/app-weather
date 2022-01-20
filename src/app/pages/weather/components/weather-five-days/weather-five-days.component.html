@@ -4,6 +4,12 @@
         <h1>{{ cityName }} - next five days</h1>
     </div>
 
+    <div class="button-wrapper">
+        <button class="btn btn-primary" (click)="back()">
+            Back
+        </button>
+    </div>
+
     <div class="row">
         <!-- IF IT WAS THE DAILY GET REQUEST -->
         <!-- <div class="col-lg-2 text-center" *ngFor="let forecast of forecastNextFiveDays$ | async">
@@ -16,5 +22,5 @@
                         (click)="navigateToTime(dayForecast.day)"
             ></app-next-day>
         </div>
-    </div>
+    </div>    
 </div>

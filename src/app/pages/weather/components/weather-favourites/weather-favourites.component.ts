@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/app-store/app-state.model';
@@ -13,10 +14,16 @@ export class WeatherFavouritesComponent implements OnInit {
 
   favorites$: Observable<City[]>;
 
-  constructor(private store: Store<AppState>) { }
+  constructor(
+    private store: Store<AppState>,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.favorites$ = this.store.select(store => store.favourites);
+  }
+
+  back() {
+    this.router.navigate(['weather']);
   }
 
 }

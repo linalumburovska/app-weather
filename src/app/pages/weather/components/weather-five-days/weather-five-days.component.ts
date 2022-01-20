@@ -71,5 +71,9 @@ export class WeatherFiveDaysComponent implements OnInit {
     });
   }
 
+  back() {
+    this.router.navigate(['weather']);
+  }
+
 
 }
