@@ -5,8 +5,14 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-2 text-center" *ngFor="let forecast of forecastNextFiveDays$ | async | slice :0:5">
+        <!-- IF IT WAS THE DAILY GET REQUEST -->
+        <!-- <div class="col-lg-2 text-center" *ngFor="let forecast of forecastNextFiveDays$ | async">
             <app-next-day [forecast]="forecast"
+                        (click)="navigateToTime(forecast)"
+            ></app-next-day>
+        </div> -->
+        <div class="col-lg-2 text-center" *ngFor="let dayForecast of days">
+            <app-next-day [forecast]="dayForecast.forecast"
                         (click)="navigateToTime(forecast)"
             ></app-next-day>
         </div>

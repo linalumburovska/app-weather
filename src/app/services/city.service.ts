@@ -24,7 +24,8 @@ export class CityService {
       + '&units=' + this.units);
   }
 
-  getWeatherDataForFiveDays(cityName: string): Observable<any> {
+  // RETURNS DATA FOR FIVE DAYS AND FOR EVERY DAY GIVES FORECAST ON EVERY THREE HOURS
+  getWeatherDataForFiveDaysThreeHours(cityName: string): Observable<any> {
     return this.http.get<any>(this.apiUrl 
       + 'forecast?q=' + cityName 
       + '&appid=' + this.apiKey 

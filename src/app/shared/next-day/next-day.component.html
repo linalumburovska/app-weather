@@ -1,5 +1,5 @@
 <div>
-    <div class="text-muted">{{ forecast.dt | date: 'EE' }}</div>
+    <div class="text-muted">{{ (forecast.dt*1000) | date: 'EE' }}</div>
     <div *ngFor="let weather of forecast.weather">
         <img src="http://openweathermap.org/img/wn/{{weather.icon}}@2x.png" />
     </div>
